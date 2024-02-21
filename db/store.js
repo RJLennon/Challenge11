@@ -31,6 +31,26 @@ class Store {
               return parsedNotes;
         });
     }
+//Add a note 
+    addNote(note) {
+        const {title,text} = note;
+        if (!title || !text) {
+            throw new Error ("The note needs to have both a title and text")
+        }
+        const newNote = {title,text,id: uuidv1()};
+
+        return this.getNotes()
+        .then((notes)=>[...notes,newNote])
+        .then((updatedNotes)=>this.write(updatedNotes))
+        .then(()=>newNote)
+    }
+//Delete a note
+    removeNote(id) {
+        return this.getNotes()
+       .then((notes) => notes.filter((note) => note.id !== id))
+       .then((filteredNotes) => this.write(filteredNotes));
+   }
 };
 
+//Export store class
 module.exports=new Store();
