@@ -1,5 +1,8 @@
 # 11 Express.js: Note Taker
 
+Application URL: https://rjl-note-taker-5aad7aec2cdc.herokuapp.com/
+GitHub Repository: https://github.com/RJLennon/Challenge11 
+
 ## User Story
 
 ```
